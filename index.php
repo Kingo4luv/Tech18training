@@ -14,6 +14,19 @@
         <label for="lastName">Last Name:</label>
         <input type="text" name="last_name" id="lastName">
       </p>
+       <p>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+      </p>
+      <p>
+        <label for="username">User Name:</label>
+        <input type="text" name="username" id="username">
+      </p>
+      <p>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="lastName">
+      </p>
+      
       <input type="submit" value="Submit" name="submit">
     </form>
   </body>

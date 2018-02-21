@@ -2,25 +2,36 @@
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 
-$link = mysqli_connect("localhost", "root", "", "training");
-// Check connection
-if($link === false){
- die("ERROR: Could not connect. " . mysqli_connect_error());
-}
+$link = mysqli_connect("localhost","root" ,"","tech18");
 
-// Check if submit button is clicked
-if(isset($_POST['submit'])){
-	$first_name = $_POST['first_name'];
-  $last_name  = $_POST['last_name'];
+if ($link === false) {
+	die( "could not connect to database".mysqli_connect_error());
+	# code...
+} else{
+	if (isset($_POST['submit'])) {
+		$first_name = $_POST['first_name'];
+		$last_name = $_POST['last_name'];
+		$email = $_POST['email'];
+		$username = $_POST['username'];
+		$password = $_POST['password'];
 
-  // attempt insert query execution
-  $sql = "INSERT INTO users (first_name, last_name) VALUES ('$first_name', '$last_name')";
-  if(mysqli_query($link, $sql)){
-    echo "Records added successfully.";
-  } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-  }
+		if (isset($first_name)&&isset($last_name)&&isset($email)&&isset($username)&&isset($password)) {
+
+			$sql = "INSERT INTO login (first_name,last_name,email,username,password) VALUES ('$first_name','$last_name','$email','$username','$password')";
+			if (mysqli_query($link,$sql)) {
+				# code...
+				echo "sucessfully Added";
+			}else{
+				echo "ERROR: could not add to $sql". mysqli_error($link);
+			}
+
+
+		}else{
+			echo "please fill all the forms";
+		}
+
+		
+
+	}
 }
-// close connection
-mysqli_close($link);
 ?>
