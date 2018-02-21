@@ -34,4 +34,5 @@ if ($link === false) {
 
 	}
 }
+mysqli_close($link);
 ?>
